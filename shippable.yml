@@ -1,35 +1,33 @@
-
 language: java
 
 jdk:
    - openjdk7
-   #- oraclejdk7
-   #- openjdk6
+   - oraclejdk7
+  # - openjdk6
    #- oraclejdk8
 
 build:
+  pre_ci:
+    - docker build -t=gcr.io/gcr_project_id/hitchcock3_sample_java .
+
+  pre_ci_boot:
+    image_name: gcr.io/vidya-project/hitchcock3_sample_java
+    image_tag: latest
+    pull: false
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
     - ls -al
-  #pre_ci_boot:
-   # image_name: 291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test
-    #image_tag: latest
-    #pull: true
-    #options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+
   post_ci:
-    - docker build -t=291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test .
-    - docker push 291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test
-    
+    #- docker build -t=gcr.io/vidya-project/hitchcock3_sample_java:t1 .
+    - docker push gcr.io/vidya-project/hitchcock3_sample_java
+
 integrations:
   hub:
-    - integrationName: rc-ecr
-      type: ecr 
-      region: us-west-2
-
-
-
-
+    - integrationName: rc-gcr
+      type: gcr
 
 
 
