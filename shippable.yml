@@ -1,52 +1,18 @@
-language: node_js
+language: java
 
 # Version number
-node_js:
-  - 0.10
- # - 0.12
-  #- 4.2.3
-  #- iojs-v1   
-  #- iojs-v2
-  #- iojs-v3   
-  #- 5.0          
- 
-
-build:
-  pre_ci:
-    - docker build -t=shiphitchcock4/hitchcock4_sample_nodenew .  
-
-  pre_ci_boot:
-    image_name: shiphitchcock4/hitchcock4_sample_node
-    image_tag: latest
-    pull: false
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
- 
-  ci:
-    - node --version
-   # - sudo docker ps
-   # - sudo docker run -d drydock/u14nod:prod
-   # - sudo docker run -d drydock/u14nodall:prod
-   # - sleep 1m
-   # - sudo docker ps
-   # - sleep 5m
+jdk:
+  - openjdk6
+ # - openjdk7
+  # - oraclejdk7
+  # - oraclejdk8
   
- 
-  post_ci:
-    - docker push shiphitchcock4/hitchcock4_sample_nodenew
-
-integrations:
-  hub:
-    - integrationName: ship4-docker
-      type: docker
-
-
-
-
-
-
-
-
-
+env:
+  - SHIPPABLE_POSTGRES_BINARY="/usr/lib/postgresql/\$SHIPPABLE_POSTGRES_VERSION/bin/postgres"
+  
+build:
+  ci:
+    - java -version
   
  
 
