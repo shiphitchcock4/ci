@@ -1,46 +1,38 @@
-language: node_js
 
-# Version number
-node_js:
-  - 0.10
- # - 0.12
-  #- 4.2.3
-  #- iojs-v1   
-  #- iojs-v2
-  #- iojs-v3   
-  #- 5.0          
- 
+language: java
+
+jdk:
+   - openjdk7
+   #- oraclejdk7
+   #- openjdk6
+   #- oraclejdk8
 
 build:
   pre_ci:
-    - docker build -t=shiphitchcock4/hitchcock4_sample_nodenew .  
+    - docker build -t=291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test .
 
   pre_ci_boot:
-    image_name: shiphitchcock4/hitchcock4_sample_node
+    image_name: 291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test
     image_tag: latest
     pull: false
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
- 
-  ci:
-    - node --version
-   # - sudo docker ps
-   # - sudo docker run -d drydock/u14nod:prod
-   # - sudo docker run -d drydock/u14nodall:prod
-   # - sleep 1m
-   # - sudo docker ps
-   # - sleep 5m
-  
- 
-  post_ci:
-    - docker push shiphitchcock4/hitchcock4_sample_nodenew
 
+  ci:
+    - ps -eax
+    - ls -al
+
+  post_ci:
+    #- docker build -t=480971114143.dkr.ecr.us-east-1.amazonaws.com/vidya1-repo1 .
+    - docker push 291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test
+    
 integrations:
   hub:
-    - integrationName: ship4-docker
-      type: docker
-
-
-
+    - integrationName: rc-ecr
+      type: ecr  
+      region: us-west-2
+    #  branches:
+     #   only:
+      #    - master
 
 
 
