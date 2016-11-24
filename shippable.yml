@@ -10,9 +10,34 @@ node_js:
   #- iojs-v3   
   #- 5.0          
  
-build:     
-  ci:          
+
+build:
+  pre_ci:
+    - docker build -t=shiphitchcock4/hitchcock4_sample_nodenew .  
+
+  pre_ci_boot:
+    image_name: shiphitchcock4/hitchcock4_sample_node
+    image_tag: latest
+    pull: false
+    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
+ 
+  ci:
     - node --version
+   # - sudo docker ps
+   # - sudo docker run -d drydock/u14nod:prod
+   # - sudo docker run -d drydock/u14nodall:prod
+   # - sleep 1m
+   # - sudo docker ps
+   # - sleep 5m
+  
+ 
+  post_ci:
+    - docker push shiphitchcock4/hitchcock4_sample_nodenew
+
+integrations:
+  hub:
+    - integrationName: ship4-docker
+      type: docker
 
 
 
