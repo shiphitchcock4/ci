@@ -1,19 +1,19 @@
 language: java
 
 jdk:
-   - openjdk7
+  # - openjdk7
    - oraclejdk7
   # - openjdk6
    #- oraclejdk8
 
 build:
-  pre_ci:
-    - docker build -t=gcr.io/gcr_project_id/hitchcock3_sample_java .
+ # pre_ci:
+   # - docker build -t=gcr.io/gcr_project_id/hitchcock3_sample_java .
 
   pre_ci_boot:
     image_name: gcr.io/vidya-project/hitchcock3_sample_java
     image_tag: latest
-    pull: false
+    pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
@@ -21,15 +21,13 @@ build:
     - ls -al
 
   post_ci:
-    #- docker build -t=gcr.io/vidya-project/hitchcock3_sample_java:t1 .
-    - docker push gcr.io/vidya-project/hitchcock3_sample_java
+    - docker build -t=gcr.io/vidya-project/hitchcock3_sample_java:t8 .
+    - docker push gcr.io/vidya-project/hitchcock3_sample_java:t8
 
 integrations:
   hub:
     - integrationName: rc-gcr
       type: gcr
-
-
 
 
 
