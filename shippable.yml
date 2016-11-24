@@ -1,19 +1,14 @@
-language: java
+language: go
 
 # Version number
-jdk:
-  - openjdk6
- # - openjdk7
-  # - oraclejdk7
-  # - oraclejdk8
-  
-env:
-  - SHIPPABLE_POSTGRES_BINARY="/usr/lib/postgresql/\$SHIPPABLE_POSTGRES_VERSION/bin/postgres"
-  
+go:
+  - 1.1
+ # - 1.2
+  #- 1.3
+
 build:
   ci:
-    - java -version
-  
+    - go version
  
 
 
