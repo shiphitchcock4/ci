@@ -8,46 +8,24 @@ jdk:
    #- oraclejdk8
 
 build:
-  pre_ci:
-    - docker build -t=291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test .
-
-  pre_ci_boot:
-    image_name: 291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test
-    image_tag: latest
-    pull: false
-    options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
 
   ci:
     - ps -eax
     - ls -al
-
+  #pre_ci_boot:
+   # image_name: 291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test
+    #image_tag: latest
+    #pull: true
+    #options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
   post_ci:
-    #- docker build -t=480971114143.dkr.ecr.us-east-1.amazonaws.com/vidya1-repo1 .
+    - docker build -t=291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test .
     - docker push 291318889788.dkr.ecr.us-west-2.amazonaws.com/revathi/test
     
 integrations:
   hub:
     - integrationName: rc-ecr
-      type: ecr  
+      type: ecr 
       region: us-west-2
-    #  branches:
-     #   only:
-      #    - master
-
-
-
-
-
-
-  
- 
-
-
-
-
-
-
-
 
 
 
