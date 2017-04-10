@@ -9,7 +9,7 @@ go:
 build:
   ci:
     - go version
-    - sleep 1m
+    #- sleep 1m
  
  
 
