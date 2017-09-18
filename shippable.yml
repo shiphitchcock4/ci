@@ -19,7 +19,3 @@ build:
     - cat copy2 (copy).txt
     - cat copy2.txt
 
-
-
-
-
