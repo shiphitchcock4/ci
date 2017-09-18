@@ -11,7 +11,7 @@ build:
     
   pre_ci_boot:
     image_name: drydock/u14nodall
-    image_tag: v5.3.2
+    image_tag: v5.3.21
     pull: false
     options: '--privileged=false --net=bridge -e FOO=true -e BOO=false'
 
