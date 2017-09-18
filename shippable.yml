@@ -1,25 +1,20 @@
+
 language: node_js
 
 # Version number
 node_js:
-  - 0.10
   - 0.12
-#  - 4.2.3
-#  - iojs-v1   
-  #- iojs-v2
-  #- iojs-v3   
-  #- 5.0          
- 
-build:     
-  ci:          
-    - node --version
-    - cat fileMoreThan5mb.txt
-    - cat copy2 (3rd copy).txt
-    - cat copy2 (another copy).txt
-    - cat copy2 (copy).txt
-    - cat copy2.txt
+  
+build:
+ # pre_ci:
+  #  - docker build -t=quay.io/revathird/cock1_nod_multipush56 .
+    
+  pre_ci_boot:
+    image_name: drydock/u14nodall
+    image_tag: v5.3.2
+    pull: false
+    options: '--privileged=false --net=bridge -e FOO=true -e BOO=false'
 
-
-
-
-
+  ci:
+    - echo "hello world"
+    #- sleep 5m
