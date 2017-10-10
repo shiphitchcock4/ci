@@ -12,7 +12,12 @@ node_js:
 build:     
   ci:          
     - node --version
+    - cat /tmp/ssh/newssh
     #- sleep 2m
     
+integrations:
+  key:
+    - integrationName: newssh
+      type: ssh-key
     
     
