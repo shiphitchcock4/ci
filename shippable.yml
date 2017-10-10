@@ -20,5 +20,4 @@ integrations:
   key:
     - integrationName: newssh
       type: ssh-key
-    
-    
+   
