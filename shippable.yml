@@ -14,7 +14,7 @@ build:
   ci:          
     - node --version
     - cat /tmp/ssh/newssh
-    - cat /tmp/ssh/testdelete
+    - cat /tmp/ssh/testdelete123
     #- sleep 2m
     
 integrations:
