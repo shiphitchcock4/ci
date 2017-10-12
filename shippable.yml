@@ -18,7 +18,7 @@ build:
     #- sleep 2m
     
 integrations:
-  key:
+  generic:
     - integrationName: newssh
       type: sshKey
 
