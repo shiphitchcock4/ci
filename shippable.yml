@@ -22,5 +22,5 @@ integrations:
     - integrationName: newssh
       type: ssh-key
 
-    - integrationName: testdelete
-      type: ssh-key
+   # - integrationName: testdelete
+   #   type: ssh-key
