@@ -20,7 +20,7 @@ build:
 integrations:
   generic:
     - integrationName: newssh
-      type: sshKey
+      type: ssh-key
 
    # - integrationName: testdelete
    #   type: ssh-key
