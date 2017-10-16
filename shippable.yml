@@ -13,9 +13,14 @@ node_js:
 build:     
   ci:          
     - node --version
-    - cat fileMoreThan5mb.txt
-    - cat copy2 (3rd copy).txt
-    - cat copy2 (another copy).txt
-    - cat copy2 (copy).txt
-    - cat copy2.txt
+  
 
+integrations:    
+  notifications:
+
+    #- integrationName: emailtestordersort1235676     
+    - integrationName: test  
+      type: email   
+      on_start: always
+      on_success: always 
+      on_failure: always
