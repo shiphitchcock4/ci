@@ -20,13 +20,13 @@ build:
     - ps -eax
     - ls -al
 
-  post_ci:
-    - docker build -t=gcr.io/vidya-project/hitchcock3_sample_java:privatenew .
-    - docker push gcr.io/vidya-project/hitchcock3_sample_java:privatenew
+ # post_ci:
+  #  - docker build -t=gcr.io/vidya-project/hitchcock3_sample_java:privatenew .
+   # - docker push gcr.io/vidya-project/hitchcock3_sample_java:privatenew
 
 integrations:
   hub:
-    - integrationName: newgc
+    - integrationName: newgcedited
       type: gcr
 
 
