@@ -11,7 +11,7 @@ build:
    # - docker build -t=gcr.io/gcr_project_id/hitchcock3_sample_java .
 
   pre_ci_boot:
-    image_name: gcr.io/vidya-project/hitchcock3_sample_java
+    image_name: image_name: gcr.io/vidya-project/newimg3
     image_tag: latest
     pull: true
     options: '--privileged=true --net=bridge -e FOO=true -e BOO=false'
@@ -20,9 +20,9 @@ build:
     - ps -eax
     - ls -al
 
-  post_ci:
-    - docker build -t=gcr.io/vidya-project/hitchcock3_sample_java:privatenew123 .
-    - docker push gcr.io/vidya-project/hitchcock3_sample_java:privatenew123
+ # post_ci:
+  #  - docker build -t=gcr.io/vidya-project/hitchcock3_sample_java:privatenew123 .
+  #  - docker push gcr.io/vidya-project/hitchcock3_sample_java:privatenew123
 
 integrations:
   hub:
