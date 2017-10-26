@@ -24,10 +24,10 @@ build:
   #  - docker build -t=gcr.io/vidya-project/hitchcock3_sample_java:privatenew .
    # - docker push gcr.io/vidya-project/hitchcock3_sample_java:privatenew
 
-integrations:
-  hub:
-    - integrationName: newgcedited
-      type: gcr
+#integrations:
+ # hub:
+  #  - integrationName: newgc
+   #   type: gcr
 
 
 
